@@ -1,6 +1,11 @@
 package me.ahtlam.microengine;
 
-import me.ahtlam.microengine.render.AppWindow;
+import java.awt.Point;
+
+import me.ahtlam.microengine.input.Pointer;
+import me.ahtlam.microengine.input.WindowMouseListener;
+import me.ahtlam.microengine.render.WindowWrapper;
+
 
 public abstract class Microengine implements Runnable {
 	public static Microengine engine;
@@ -15,7 +20,8 @@ public abstract class Microengine implements Runnable {
 	
 	private String title;
 	private int width, height;
-	private AppWindow window;
+	
+	private WindowWrapper window; // Visual-related class helper.
 	
 	// Sets the window's name, width, and height on creation of this object.
 	public Microengine(String title, int width, int height) {
@@ -31,9 +37,10 @@ public abstract class Microengine implements Runnable {
 		
 		// Create new publisher objects through the PublisherHandler class.
 		PublisherHandler.startup();
+		InternalSubscriberHandler.startup();
 		
-		// Create a new window for the program.
-		window = new AppWindow(title, width, height);
+		window = new WindowWrapper(title, width, height); // Create a new window for the program.
+		window.getCanvas().addMouseListener(new WindowMouseListener()); // Attach all the listeners to the window's canvas.
 
 		// Set this to running.
 		isRunning = true;
@@ -102,19 +109,30 @@ public abstract class Microengine implements Runnable {
 	// This function should not be overwritten by any subclasses, as they handle all of the events that are called. 
 	// This function fires custom input events that the program should use to detect new inputs.
 	private final void process() {
+		// Keyboard and mouse inputs are detected by their respective listeners by Java.
 		
+		// Update the location of the mouse cursor in the static Pointer class.
+		Point pos = window.getCanvas().getMousePosition();
+		
+		if (pos == null) {
+			Pointer.setOffScreen(true);
+		} else {
+			Pointer.setOffScreen(false);
+			Pointer.setX(pos.x);
+			Pointer.setY(pos.y);
+		}
+		
+		PublisherHandler.UPDATE_TICK.alert();
 	}
 
-	// This function should not be overwritten by any subclasses, as they handle all of the events that are called, and the program should use events to detect information.
 	private final void update() {
-		
 	}
-
-	// This function should not be overwritten by any subclasses, as they handle all of the events that are called.
+	
 	private final void render() {
 		PublisherHandler.RENDER_TICK.alert(this.window.getGraphics(), this.window.getBuffer());
 	}
 	
+
 	public String getTitle() {
 		return title;
 	}
@@ -126,4 +144,5 @@ public abstract class Microengine implements Runnable {
 	public int getHeight() {
 		return height;
 	}
+	
 }

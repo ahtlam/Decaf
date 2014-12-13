@@ -1,4 +1,4 @@
-package me.ahtlam.microengine.render;
+package me.ahtlam.microengine.loop;
 
 import java.awt.Graphics;
 import java.awt.image.BufferStrategy;

@@ -1,4 +1,4 @@
-package me.ahtlam.microengine.render;
+package me.ahtlam.microengine.loop;
 
 import java.awt.Graphics;
 import java.awt.image.BufferStrategy;
@@ -9,9 +9,22 @@ public class RenderTickPublisher {
 	
 	// Procs an alert and gives the subscriber an object variable.
 	public void alert(Graphics g, BufferStrategy buffer) {
-		for (RenderTickSubscriber sub : subs) {
-			sub.proc(g, buffer);
-		}
+		try {
+			for (RenderTickSubscriber sub : subs) {
+				sub.proc(g, buffer);
+			}
+
+            if (!buffer.contentsLost()) {
+            	buffer.show();
+            }
+
+            Thread.yield();
+            
+        } finally {
+            if (g != null) {
+                g.dispose();
+            }
+        }
 	}
 
 	// Add a new subscriber.

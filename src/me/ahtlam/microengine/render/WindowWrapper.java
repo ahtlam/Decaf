@@ -7,7 +7,7 @@ import java.awt.image.BufferStrategy;
 
 import javax.swing.JFrame;
 
-public class AppWindow {
+public class WindowWrapper {
 	// Important parts of displaying a window.
 	private JFrame frame;
 	private Canvas canvas;
@@ -18,7 +18,7 @@ public class AppWindow {
 	private String title;
 	private int width, height;
 	
-	public AppWindow(String title, int width, int height) {
+	public WindowWrapper(String title, int width, int height) {
 		this.title = title;
 		this.width = width;
 		this.height = height;
@@ -57,4 +57,7 @@ public class AppWindow {
         return this.buffer.getDrawGraphics();
     }
     
+    public Canvas getCanvas() {
+    	return this.canvas;
+    }
 }
