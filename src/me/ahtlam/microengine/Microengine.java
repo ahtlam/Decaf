@@ -107,7 +107,7 @@ public abstract class Microengine implements Runnable {
 	}
 
 	// This function should not be overwritten by any subclasses, as they handle all of the events that are called. 
-	// This function fires custom input events that the program should use to detect new inputs.
+	// This function fires custom input events that the program should use to detect changes.
 	private final void process() {
 		// Keyboard and mouse inputs are detected by their respective listeners by Java.
 		
@@ -122,10 +122,10 @@ public abstract class Microengine implements Runnable {
 			Pointer.setY(pos.y);
 		}
 		
-		PublisherHandler.UPDATE_TICK.alert();
 	}
 
 	private final void update() {
+		PublisherHandler.UPDATE_TICK.alert();
 	}
 	
 	private final void render() {
