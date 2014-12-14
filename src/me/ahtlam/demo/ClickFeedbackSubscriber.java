@@ -4,6 +4,7 @@ import java.awt.Point;
 import java.util.HashMap;
 import java.util.Random;
 
+import me.ahtlam.microengine.audio.AudioWrapper;
 import me.ahtlam.microengine.input.MouseClickSubscriber;
 
 public class ClickFeedbackSubscriber implements MouseClickSubscriber {
@@ -14,7 +15,8 @@ public class ClickFeedbackSubscriber implements MouseClickSubscriber {
 		p.setLocation(x, y);
 		
 		clicks.put(p, System.currentTimeMillis() + (new Random().nextInt(10000) + 250));
+		AudioWrapper.playWavFromStream("ding", Demo.class.getResourceAsStream("/ding.wav"));
+		
 	}
-
 
 }

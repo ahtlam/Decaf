@@ -22,6 +22,7 @@ public abstract class Microengine implements Runnable {
 	private int width, height;
 	
 	private WindowWrapper window; // Visual-related class helper.
+	private Thread loopThread;
 	
 	// Sets the window's name, width, and height on creation of this object.
 	public Microengine(String title, int width, int height) {
@@ -46,12 +47,19 @@ public abstract class Microengine implements Runnable {
 		isRunning = true;
 		
 		// Creates a new Thread that runs the run() function in this file.
-		new Thread(Microengine.this).start();
+		loopThread = new Thread(Microengine.this);
+		loopThread.start();
 	}
 
 	// Ran when the program stops (hopefully ran after a crash).
 	public synchronized void stop() {
 		isRunning = false;
+		
+		try {
+			loopThread.join(); // Wait for Thread to die.
+		} catch (InterruptedException e) {
+			e.printStackTrace();
+		} 
 	}
 	
 	// This function is ran when this class is started as a Thread
