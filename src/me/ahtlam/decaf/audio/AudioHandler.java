@@ -1,4 +1,4 @@
-package me.ahtlam.microengine.audio;
+package me.ahtlam.decaf.audio;
 
 import java.io.InputStream;
 import java.util.HashMap;
@@ -7,10 +7,10 @@ import javax.sound.sampled.AudioInputStream;
 import javax.sound.sampled.AudioSystem;
 import javax.sound.sampled.Clip;
 
-import me.ahtlam.microengine.Microengine;
+import me.ahtlam.decaf.Decaf;
 
-
-public class AudioWrapper {
+// TODO: A more in-depth sound handler. This sucks.
+public class AudioHandler {
 	public static HashMap<String, Clip> clips = new HashMap<String, Clip>();
 
 	/**
@@ -60,7 +60,7 @@ public class AudioWrapper {
 	 */
 	public static boolean loadWavFromResource(String filename) {
 		try {
-			AudioInputStream audioInputStream = AudioSystem.getAudioInputStream(Microengine.class.getResourceAsStream(filename));
+			AudioInputStream audioInputStream = AudioSystem.getAudioInputStream(Decaf.class.getResourceAsStream(filename));
 			Clip clip = AudioSystem.getClip();
 			clip.open(audioInputStream);
 			clips.put(filename, clip);
@@ -80,7 +80,8 @@ public class AudioWrapper {
 	 */
 	public static boolean playWavFromResource(String filename) {
 		if (loadWavFromResource(filename)) {
-			clips.get(filename).start();
+			Clip clip = clips.get(filename);
+			clip.start();
 			return true;
 		}
 		

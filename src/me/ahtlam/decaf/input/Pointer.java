@@ -1,4 +1,4 @@
-package me.ahtlam.microengine.input;
+package me.ahtlam.decaf.input;
 
 public class Pointer {
 	public static int x = 0, y = 0;

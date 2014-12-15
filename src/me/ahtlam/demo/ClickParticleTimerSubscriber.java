@@ -3,7 +3,7 @@ package me.ahtlam.demo;
 import java.awt.Point;
 import java.util.ArrayList;
 
-import me.ahtlam.microengine.loop.UpdateTickSubscriber;
+import me.ahtlam.decaf.loop.UpdateTickSubscriber;
 
 public class ClickParticleTimerSubscriber implements UpdateTickSubscriber {
 	public void proc() {

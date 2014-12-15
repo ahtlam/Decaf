@@ -1,4 +1,4 @@
-package me.ahtlam.microengine.input;
+package me.ahtlam.decaf.input;
 
 // Implement this class and add that to MouseExitPublisher's subs list to get procs.
 public interface MouseExitSubscriber {

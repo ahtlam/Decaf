@@ -1,4 +1,4 @@
-package me.ahtlam.microengine.input;
+package me.ahtlam.decaf.input;
 
 public class MouseArea {
 	private int x1, x2, y1, y2;

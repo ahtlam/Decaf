@@ -1,9 +1,9 @@
 package me.ahtlam.demo;
 
-import me.ahtlam.microengine.Microengine;
-import me.ahtlam.microengine.PublisherHandler;
+import me.ahtlam.decaf.Decaf;
+import me.ahtlam.decaf.PublisherHandler;
 
-public class Demo extends Microengine {
+public class Demo extends Decaf {
 	public static void main(String[] args) {
 		new Demo().start();
 		

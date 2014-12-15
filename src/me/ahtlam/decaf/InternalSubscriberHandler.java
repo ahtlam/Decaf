@@ -1,7 +1,7 @@
-package me.ahtlam.microengine;
+package me.ahtlam.decaf;
 
-import me.ahtlam.microengine.input.PointerPressSubscriber;
-import me.ahtlam.microengine.input.PointerReleaseSubscriber;
+import me.ahtlam.decaf.input.PointerPressSubscriber;
+import me.ahtlam.decaf.input.PointerReleaseSubscriber;
 
 public class InternalSubscriberHandler {
 	public static void startup() {

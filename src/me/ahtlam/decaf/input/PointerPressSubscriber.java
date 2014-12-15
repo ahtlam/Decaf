@@ -1,4 +1,4 @@
-package me.ahtlam.microengine.input;
+package me.ahtlam.decaf.input;
 
 public class PointerPressSubscriber implements MousePressSubscriber {
 	// Changes the boolean of Pointer's isPressed variable.

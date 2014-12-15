@@ -1,9 +1,9 @@
-package me.ahtlam.microengine.input;
+package me.ahtlam.decaf.input;
 
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 
-import me.ahtlam.microengine.PublisherHandler;
+import me.ahtlam.decaf.PublisherHandler;
 
 public class WindowMouseListener implements MouseListener {
 	public void mouseClicked(MouseEvent evt) {

@@ -5,8 +5,8 @@ import java.awt.Graphics;
 import java.awt.image.BufferStrategy;
 import java.util.Random;
 
-import me.ahtlam.microengine.input.Pointer;
-import me.ahtlam.microengine.loop.RenderTickSubscriber;
+import me.ahtlam.decaf.input.Pointer;
+import me.ahtlam.decaf.loop.RenderTickSubscriber;
 
 public class SeizureInducingSubscriber implements RenderTickSubscriber {
 	public void proc(Graphics g, BufferStrategy buffer) {

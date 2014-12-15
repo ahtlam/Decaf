@@ -1,12 +1,12 @@
-package me.ahtlam.microengine;
+package me.ahtlam.decaf;
 
-import me.ahtlam.microengine.input.MouseClickPublisher;
-import me.ahtlam.microengine.input.MouseEnterPublisher;
-import me.ahtlam.microengine.input.MouseExitPublisher;
-import me.ahtlam.microengine.input.MousePressPublisher;
-import me.ahtlam.microengine.input.MouseReleasePublisher;
-import me.ahtlam.microengine.loop.UpdateTickPublisher;
-import me.ahtlam.microengine.loop.RenderTickPublisher;
+import me.ahtlam.decaf.input.MouseClickPublisher;
+import me.ahtlam.decaf.input.MouseEnterPublisher;
+import me.ahtlam.decaf.input.MouseExitPublisher;
+import me.ahtlam.decaf.input.MousePressPublisher;
+import me.ahtlam.decaf.input.MouseReleasePublisher;
+import me.ahtlam.decaf.loop.RenderTickPublisher;
+import me.ahtlam.decaf.loop.UpdateTickPublisher;
 
 public class PublisherHandler {
 	public static UpdateTickPublisher UPDATE_TICK;

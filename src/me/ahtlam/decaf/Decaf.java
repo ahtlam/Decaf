@@ -1,14 +1,13 @@
-package me.ahtlam.microengine;
+package me.ahtlam.decaf;
 
 import java.awt.Point;
 
-import me.ahtlam.microengine.input.Pointer;
-import me.ahtlam.microengine.input.WindowMouseListener;
-import me.ahtlam.microengine.render.WindowWrapper;
+import me.ahtlam.decaf.input.Pointer;
+import me.ahtlam.decaf.input.WindowMouseListener;
+import me.ahtlam.decaf.render.WindowWrapper;
 
-
-public abstract class Microengine implements Runnable {
-	public static Microengine engine;
+public abstract class Decaf implements Runnable {
+	public static Decaf engine;
 	private boolean isRunning; // Used to determine if the game is currently running.
 	
 	// These are final variables so we don't have to worry about any other ups/fps for now. We can eventually get it working.
@@ -25,7 +24,7 @@ public abstract class Microengine implements Runnable {
 	private Thread loopThread;
 	
 	// Sets the window's name, width, and height on creation of this object.
-	public Microengine(String title, int width, int height) {
+	public Decaf(String title, int width, int height) {
 		this.title = title;
 		this.width = width;
 		this.height = height;
@@ -47,7 +46,7 @@ public abstract class Microengine implements Runnable {
 		isRunning = true;
 		
 		// Creates a new Thread that runs the run() function in this file.
-		loopThread = new Thread(Microengine.this);
+		loopThread = new Thread(Decaf.this);
 		loopThread.start();
 	}
 
