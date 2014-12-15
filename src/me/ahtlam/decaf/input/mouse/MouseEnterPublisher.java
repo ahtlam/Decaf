@@ -1,4 +1,4 @@
-package me.ahtlam.decaf.input;
+package me.ahtlam.decaf.input.mouse;
 
 import java.util.ArrayList;
 

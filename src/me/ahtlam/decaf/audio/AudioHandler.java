@@ -59,6 +59,10 @@ public class AudioHandler {
 	 * @return boolean indicating if the sound can be played.
 	 */
 	public static boolean loadWavFromResource(String filename) {
+		if (clips.containsKey(filename)) {
+			return true;
+		}
+		
 		try {
 			AudioInputStream audioInputStream = AudioSystem.getAudioInputStream(Decaf.class.getResourceAsStream(filename));
 			Clip clip = AudioSystem.getClip();
@@ -66,7 +70,7 @@ public class AudioHandler {
 			clips.put(filename, clip);
 			return true;
 
-		} catch(Exception ex) {
+		} catch (Exception ex) {
 			ex.printStackTrace();
 			return false;
 

@@ -1,4 +1,4 @@
-package me.ahtlam.decaf.render;
+package me.ahtlam.decaf.window;
 
 import java.awt.Canvas;
 import java.awt.Dimension;

@@ -3,8 +3,9 @@ package me.ahtlam.decaf;
 import java.awt.Point;
 
 import me.ahtlam.decaf.input.Pointer;
-import me.ahtlam.decaf.input.WindowMouseListener;
-import me.ahtlam.decaf.render.WindowWrapper;
+import me.ahtlam.decaf.window.WindowKeyboardListener;
+import me.ahtlam.decaf.window.WindowMouseListener;
+import me.ahtlam.decaf.window.WindowWrapper;
 
 public abstract class Decaf implements Runnable {
 	public static Decaf engine;
@@ -40,7 +41,10 @@ public abstract class Decaf implements Runnable {
 		InternalSubscriberHandler.startup();
 		
 		window = new WindowWrapper(title, width, height); // Create a new window for the program.
-		window.getCanvas().addMouseListener(new WindowMouseListener()); // Attach all the listeners to the window's canvas.
+		
+		// Attach all the listeners to the window's canvas.
+		window.getCanvas().addMouseListener(new WindowMouseListener());
+		window.getCanvas().addKeyListener(new WindowKeyboardListener());
 
 		// Set this to running.
 		isRunning = true;

@@ -8,10 +8,15 @@ import java.util.Random;
 
 import me.ahtlam.decaf.input.Pointer;
 import me.ahtlam.decaf.loop.RenderTickSubscriber;
+import me.ahtlam.decaf.render.StringPoint;
 
-public class ClickParticleRenderSubscriber implements RenderTickSubscriber {
+public class DemoRenderSubscriber implements RenderTickSubscriber {
 	public void proc(Graphics g, BufferStrategy buffer) {
 		g.setColor(Color.BLACK); // Background color
+		g.fillRect(0, 0, Demo.engine.getWidth(), Demo.engine.getHeight());
+		
+		// Seizure warning.
+		g.setColor(Color.getHSBColor(new Random().nextFloat(), 0.1F, 0.1F)); // Pick a random color.
 		g.fillRect(0, 0, Demo.engine.getWidth(), Demo.engine.getHeight());
 		
 		g.setColor(Color.WHITE);
@@ -26,6 +31,13 @@ public class ClickParticleRenderSubscriber implements RenderTickSubscriber {
 			g.drawOval(p.x - 15 * multi, (int) p.y - 15 * multi, 30 * multi, 30 * multi);
 			g.drawOval(p.x - 10 * multi, (int) p.y - 10 * multi, 20 * multi, 20 * multi);
 			
+		}
+		
+		// This is also pretty obnoxious looking, so refrain from staring at it for too long.
+		for (StringPoint sp : DrawingKeyPressSubscriber.keys.keySet()) {
+			Point p = sp.getPoint();
+			
+			g.drawString(sp.getString(), p.x, p.y);
 		}
 
 	}

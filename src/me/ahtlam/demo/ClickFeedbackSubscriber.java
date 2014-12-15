@@ -5,7 +5,7 @@ import java.util.HashMap;
 import java.util.Random;
 
 import me.ahtlam.decaf.audio.AudioHandler;
-import me.ahtlam.decaf.input.MouseClickSubscriber;
+import me.ahtlam.decaf.input.mouse.MouseClickSubscriber;
 
 public class ClickFeedbackSubscriber implements MouseClickSubscriber {
 	public static HashMap<Point, Long> clicks = new HashMap<Point, Long>();

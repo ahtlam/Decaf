@@ -1,4 +1,4 @@
-package me.ahtlam.decaf.input;
+package me.ahtlam.decaf.window;
 
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
