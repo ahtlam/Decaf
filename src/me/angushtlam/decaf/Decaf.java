@@ -31,7 +31,7 @@ public abstract class Decaf implements Runnable {
 		this.height = height;
 	}
 	
-	// Ran when the program starts.
+	// Run this to start the engine.
 	public synchronized void start() {
 		// Store this class to allow other classes to access it's dynamic functions and variables.
 		engine = this;
